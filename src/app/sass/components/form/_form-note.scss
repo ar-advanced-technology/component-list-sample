@@ -1,0 +1,13 @@
+// 注釈メッセージ
+.form-note {
+  font-size: font-size(12);
+  color: $color-text-gray;
+
+  &:not(.is-plain)::before {
+    content: '※';
+  }
+
+  &.is-error {
+    color: $color-danger;
+  }
+}

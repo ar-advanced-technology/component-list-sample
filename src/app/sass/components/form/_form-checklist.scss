@@ -1,0 +1,22 @@
+// -------------------------------------
+// チェックボックス / ラジオボタンのリスト
+// -------------------------------------
+
+.form-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+  & > * {
+    padding-right: space(1);
+  }
+}
+
+@include media-queries($break-point-medium, max) {
+  .form-checklist {
+    grid-template-columns: repeat(2, 1fr);
+
+    & > * {
+      padding: space(1) space(1) space(1) 0;
+    }
+  }
+}

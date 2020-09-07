@@ -1,0 +1,24 @@
+// -------------------------------------
+// 日付入力フィールド
+// -------------------------------------
+
+.form-date {
+  position: relative;
+  min-width: 140px;
+
+  .form-control {
+    padding-right: calc(1px + #{$input-icon-size} + #{space(3)});
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: font-size(16);
+    display: block;
+    font-size: $base-font-size;
+    color: $form-control-placeholder-color;
+    pointer-events: none;
+    transform: translatey(-50%);
+    @include icon('today');
+  }
+}

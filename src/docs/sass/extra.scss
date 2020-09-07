@@ -1,0 +1,18 @@
+@import "../../app/sass/core";
+
+#target {
+  padding: 1rem;
+
+  & > .button + .button {
+    margin-left: 0.5rem;
+
+    @include media-queries($break-point-small, max) {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  & > .table + .table {
+    margin-top: 1rem;
+  }
+}

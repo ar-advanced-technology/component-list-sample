@@ -1,0 +1,250 @@
+// はみ出る部分を横スクロール
+.table-container {
+  width: 100%;
+  overflow: scroll;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    padding: 0 space(1);
+  }
+
+  th,
+  td {
+    padding: space(2.5) space(2);
+    vertical-align: middle;
+  }
+
+  th {
+    font-size: font-size(12);
+    font-weight: bold;
+    color: palette(gray, light1);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &:not(.is-definition) {
+    &:not(.is-narrow) {
+      thead {
+        border-bottom: 2px solid palette(gray, light4);
+      }
+
+      tbody {
+        tr:not(:last-child) {
+          border-bottom: 2px solid palette(gray, light4);
+        }
+      }
+    }
+
+    td {
+      // 横スクロールさせる仕様なので折り返しさせない
+      white-space: nowrap;
+    }
+  }
+
+  // 外側に枠がついているパターン
+  &.is-outlined {
+    border: 2px solid palette(gray, light4);
+  }
+
+  // 項目名と内容が横に並んでいるパターン
+  &.is-definition {
+    th {
+      width: 1px;
+      padding: space(2) space(4) space(2) 0;
+      text-align: left;
+      vertical-align: middle;
+      border-right: 2px solid palette(gray, light4);
+    }
+
+    td {
+      padding: space(2) 0 space(2) space(3);
+    }
+  }
+
+  // 行をホバーしたら色が変わるパターン
+  &.is-hoverable {
+    tbody {
+      tr {
+        &:hover {
+          color: palette(primary, base);
+          background-color: palette(primary, light2);
+
+          .cell-gray {
+            color: palette(primary, base);
+          }
+        }
+      }
+    }
+  }
+
+  // チェックボックスを持つパターン
+  &.has-checkboxes {
+    // 1列目はチェックボックス列と見なす
+    td:first-child {
+      width: 1px;
+      padding-right: space(0);
+      border-left: 4px solid transparent;
+    }
+
+    .row-checked {
+      position: relative;
+      color: palette(primary, base);
+      background-color: palette(primary, light2);
+
+      td:first-child {
+        border-color: palette(primary, base);
+      }
+
+      .cell-gray {
+        color: palette(primary, base);
+      }
+    }
+  }
+
+  // 行間に余白とボーダーが入らないパターン
+  &.is-narrow {
+    tr:not(:first-child) {
+      td {
+        padding-top: 0;
+      }
+    }
+
+    tr:not(:last-child) {
+      td {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  // 注意行
+  .row-danger {
+    color: palette(danger, base);
+    background-color: palette(danger, light2);
+  }
+
+  // セルの幅を内容の幅まで縮める
+  .cell-minimum {
+    width: 1px;
+  }
+
+  // セルの内容を省略する
+  .cell-ellipsis {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // セルの文字色をグレーにする
+  .cell-gray {
+    color: palette(gray, light1);
+  }
+}
+
+@mixin block {
+  display: block;
+
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+}
+
+@include media-queries($break-point-small, max) {
+  .table {
+    &.is-definition {
+      @include block;
+
+      th,
+      td {
+        padding-left: 0;
+      }
+
+      th {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 2px solid palette(gray, light4);
+      }
+    }
+
+    // モバイルで2段になるパターン
+    &.is-mobile-stacked {
+      @include block;
+
+      .cell-minimum {
+        width: auto;
+      }
+
+      .cell-ellipsis {
+        max-width: 100%;
+      }
+
+      // 1列目にチェックボックスあり
+      &.has-checkboxes {
+        tr {
+          position: relative;
+        }
+
+        td:first-child {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          width: auto;
+          padding-left: space(1.5);
+        }
+
+        td:not(:first-child) {
+          padding-left: space(5);
+        }
+
+        td:nth-child(n + 2) {
+          &:not(:last-child) {
+            padding-bottom: 0;
+          }
+
+          & + td {
+            padding-top: space(1);
+          }
+        }
+      }
+
+      &:not(.has-checkboxes) {
+        td:not(:last-child) {
+          padding-bottom: 0;
+        }
+
+        td + td {
+          padding-top: space(1);
+        }
+      }
+
+      // PCの画面では行間に余白が入らないパターン
+      &.is-narrow {
+        tr:first-child {
+          td:not(:first-child) {
+            padding-top: 0;
+          }
+        }
+
+        tr:not(:last-child) {
+          td:last-child {
+            padding-bottom: space(2);
+          }
+        }
+
+        td + td {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}

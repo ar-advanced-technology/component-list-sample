@@ -1,0 +1,118 @@
+// -------------------------------------
+// 色
+// -------------------------------------
+
+$palette: (
+  primary: (
+    base: #3ec4ac,
+    light1: #8bdbcd,
+    light2: #f0fbf9,
+  ),
+  gray: (
+    light1: #aaacb4,
+    light2: #c9cbd0,
+    light3: #dfe0e3,
+    light4: #f4f4f5,
+  ),
+  black: (
+    base: #2b3145,
+  ),
+  white: (
+    base: #fff,
+  ),
+  accent: (
+    base: #edcc15,
+    light: #fdfae7,
+  ),
+  danger: (
+    base: #dd6a64,
+    light1: #eaa5a1,
+    light2: #fff8f7,
+  ),
+  info: (
+    base: #d04877,
+  ),
+  category1: (
+    base: #3ec4ac,
+    light: #8bdbcd,
+  ),
+  category2: (
+    base: #8bcee0,
+    light: #b9e1ec,
+  ),
+  category3: (
+    base: #9b96db,
+    light: #c2bfe9,
+  ),
+  category4: (
+    base: #dd6a64,
+    light: #eaa5a1,
+  ),
+  category5: (
+    base: #aaacb4,
+    light: #c9cbd0,
+  ),
+);
+
+@function palette($key, $tone: base) {
+  @return map-get(map-get($palette, $key), $tone);
+}
+
+$color-text: palette(black, base);
+$color-background: palette(white, base);
+$color-text-gray: palette(gray, light1);
+$color-primary: palette(primary, base);
+$color-danger: palette(danger, base);
+$color-box-shadow: #000;
+$color-footer: #1b2133;
+
+// -------------------------------------
+// フォント
+// -------------------------------------
+
+$font-family: 'メイリオ', 'Meiryo', 'ヒラギノ角ゴ ProN',
+  'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'ヒラギノ角ゴシック',
+  'Hiragino Kaku Gothic Std', sans-serif;
+$base-font-size-px: 14;
+$base-font-size: #{$base-font-size-px}px;
+$base-font-size-mobile: 14px;
+$base-line-height: 1.6;
+
+// -------------------------------------
+// ブレイクポイント
+// -------------------------------------
+
+$break-point-medium: 992px;
+$break-point-small: 768px;
+
+// -------------------------------------
+// spaceの基準
+// -------------------------------------
+
+$space-base: 8px;
+
+// -------------------------------------
+// コンポーネントサイズ
+// -------------------------------------
+
+$header-height: 60px;
+$sp-header-height: 55px;
+$sidemenu-width: 240px;
+
+// -------------------------------------
+// アニメーションプロパティ
+// -------------------------------------
+
+$duration: 0.4s;
+$timing-function: ease;
+$iteration-count: 1;
+
+// -------------------------------------
+// フォーム
+// -------------------------------------
+
+$form-control-background-color: $color-background;
+$form-control-text-color: $color-text;
+$form-control-border-color: palette(gray, light3);
+$form-control-placeholder-color: $color-text-gray;
+$form-control-border-radius: 4px;

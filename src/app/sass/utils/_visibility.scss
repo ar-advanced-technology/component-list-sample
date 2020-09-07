@@ -1,0 +1,16 @@
+/* stylelint-disable declaration-no-important  */
+.pc-only {
+  @include media-queries($break-point-small, max) {
+    display: none !important;
+  }
+}
+
+.sp-only {
+  @include media-queries($break-point-small, min) {
+    display: none !important;
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <div id="root">
+    <div class="layout" :class="{ 'is-main-full': isMainFull }">
+      <header class="layout-header">
+        <nav class="navbar">
+          <a href="/" class="navbar-title">Sample App</a>
+        </nav>
+      </header>
+      <main class="layout-main">
+        <div class="content">
+          <h1>テキスト入力</h1>
+<h2>Example</h2>
+<sandbox escaped-code='<form>
+  <p class=%22text-sm text-danger mb-2%22>※マークは必須項目です</p>
+  <div class=%22form-group%22>
+    <label class=%22form-label is-required%22>項目名</label>
+    <div class=%22form-wrap%22>
+      <input type=%22text%22 name=%22%22 value=%22%22 class=%22form-control%22 placeholder=%22項目%22 />
+    </div>
+  </div>
+  <!-- 項目名を併記しない場合の表示 -->
+  <div class=%22form-group%22>
+    <input type=%22text%22 name=%22%22 value=%22%22 class=%22form-control%22 placeholder=%22項目%22 />
+  </div>
+</form>' lang="html" :height="200" :breakpoints="[768]"></sandbox>
+<h2>エラー</h2>
+<sandbox escaped-code='<!-- エラー時はinput要素にis-errorクラスを付与する -->
+<div class=%22form-group%22>
+  <label class=%22form-label%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <input type=%22text%22 name=%22%22 value=%22%22 class=%22form-control is-error%22 placeholder=%22メールアドレスを入力%22/>
+    <p class=%22form-note is-error%22>エラー文が入ります</p>
+  </div>
+</div>' lang="html" :height="140" :breakpoints="[768]"></sandbox>
+<h2>非活性</h2>
+<sandbox escaped-code='<!-- input要素にdisabled(無効化)を設定した場合の表示 -->
+<div class=%22form-group%22>
+  <label class=%22form-label%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <input type=%22text%22 name=%22%22 value=%22%22 class=%22form-control%22 disabled placeholder=%22メールアドレスを入力%22 />
+  </div>
+</div>' lang="html" :height="140" :breakpoints="[768]"></sandbox>
+<h2>右寄せ</h2>
+<sandbox escaped-code='<div class=%22form-group%22>
+  <label class=%22form-label%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <input type=%22number%22 name=%22%22 value=%221200%22 class=%22form-control is-text-right%22 placeholder=%22金額%22 />
+  </div>
+</div>' lang="html" :height="120" :breakpoints="[768]"></sandbox>
+<h2>複数行</h2>
+<sandbox escaped-code='<form>
+  <div class=%22form-group%22>
+    <label class=%22form-label is-required%22>項目名</label>
+    <div class=%22form-wrap%22>
+      <textarea name=%22%22 value=%22%22 class=%22form-control%22 rows=%225%22></textarea>
+      <p class=%22form-note%22>見積の内容や確認する上での注意事項を記載してください</p>
+    </div>
+  </div>
+  <!-- エラー時はtextarea要素にis-errorクラスを付与する -->
+  <div class=%22form-group%22>
+    <label class=%22form-label is-required%22>項目名</label>
+    <div class=%22form-wrap%22>
+      <textarea name=%22%22 value=%22%22 class=%22form-control is-error%22 rows=%225%22></textarea>
+      <p class=%22form-note%22>見積の内容や確認する上での注意事項を記載してください</p>
+    </div>
+  </div>
+  <!-- textarea要素にdisabled(無効化)を設定した場合の表示 -->
+  <div class=%22form-group%22>
+    <label class=%22form-label is-required%22>項目名</label>
+    <div class=%22form-wrap%22>
+      <textarea name=%22%22 value=%22%22 class=%22form-control%22 rows=%225%22 disabled></textarea>
+      <p class=%22form-note%22>見積の内容や確認する上での注意事項を記載してください</p>
+    </div>
+  </div>
+</form>' lang="html" :height="400" :breakpoints="[768]"></sandbox>
+
+        </div>
+      </main>
+      <aside class="layout-sidebar">
+        <nav class="sidebar">
+          <div class="sidebar-content">
+            
+              <h2 class="sidebar-group">コンポーネント</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="button.html">ボタン</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="modal.html">モーダルウィンドウ</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="table.html">テーブル</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="step.html">ステップ</a>
+                  </li>
+                
+              </ul>
+            
+              <h2 class="sidebar-group">フォーム</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="form-text.html">テキスト入力</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-selectbox.html">セレクトボックス</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-datepicker.html">日付</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-addrow.html">行追加</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+        </nav>
+      </aside>
+      <footer class="layout-footer footer">
+        Copyright © 2020-present AR advanced technology, Inc
+      </footer>
+      <button class="layout-toggler" @click="toggleLayout">
+        <svg v-if="isMainFull" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <svg v-else viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

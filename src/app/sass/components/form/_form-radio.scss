@@ -1,0 +1,68 @@
+// -------------------------------------
+// ラジオボタン
+// -------------------------------------
+
+@include make-checkbox(radio) {
+  label {
+    &::before {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      display: inline-block;
+      width: $radio-size;
+      height: $radio-size;
+      content: '';
+      border: 1px solid palette(gray, light3);
+      border-radius: 50%;
+    }
+  }
+
+  input {
+    &:checked + label {
+      &::before {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        display: inline-block;
+        width: $radio-size;
+        height: $radio-size;
+        content: '';
+        background-color: $color-primary;
+        border: 4px solid $color-background;
+        border-radius: 50%;
+      }
+
+      &::after {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        display: inline-block;
+        width: $radio-size;
+        height: $radio-size;
+        content: '';
+        border: 1px solid palette(gray, light3);
+        border-radius: 50%;
+      }
+    }
+
+    &:disabled {
+      & + label {
+        color: $color-text-gray;
+        cursor: default;
+      }
+
+      & + label::after {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        display: inline-block;
+        width: $radio-size;
+        height: $radio-size;
+        content: '';
+        background-color: palette(gray, light4);
+        border: 1px solid palette(gray, light3);
+        border-radius: 50%;
+      }
+    }
+  }
+}

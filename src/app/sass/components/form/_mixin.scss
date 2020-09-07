@@ -1,0 +1,27 @@
+// チェックボックスとラジオボタンの共通スタイル
+@mixin make-checkbox($name) {
+  .form-#{$name} {
+    position: relative;
+    display: inline-flex;
+
+    label {
+      position: relative;
+      padding-left: $radio-size + space(1);
+      font-size: $base-font-size;
+      color: $color-text;
+      cursor: pointer;
+
+      &:empty {
+        padding-top: $radio-size;
+        padding-left: $radio-size;
+      }
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    @content;
+  }
+}

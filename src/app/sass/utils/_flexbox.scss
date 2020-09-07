@@ -1,0 +1,48 @@
+/* stylelint-disable declaration-no-important  */
+.flexbox {
+  display: flex !important;
+
+  &.sp-column {
+    flex-direction: column !important;
+  }
+
+  &.wrap {
+    flex-wrap: wrap !important;
+  }
+
+  &.align-center {
+    align-items: center !important;
+  }
+
+  &.align-baseline {
+    align-items: baseline !important;
+  }
+
+  &.justify-between {
+    justify-content: space-between !important;
+  }
+
+  .flex-0 {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  // カラム指定
+  $column-size: (
+    sm: 20%,
+    md: 33.3%,
+    lg: 50%,
+  );
+
+  @each $size-key, $size in $column-size {
+    &.flex-col-#{$size-key} {
+      & > * {
+        flex: 0 0 #{$size};
+      }
+    }
+  }
+}

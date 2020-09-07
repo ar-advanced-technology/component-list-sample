@@ -1,0 +1,76 @@
+/* stylelint-disable declaration-no-important  */
+
+// -------------------------------------
+// サイズ
+// -------------------------------------
+
+$font-sizes: (
+  xs: font-size(10),
+  sm: font-size(12),
+  lg: font-size(16),
+  xl: font-size(24),
+);
+
+@each $key, $var in $font-sizes {
+  .text-#{$key} {
+    font-size: #{$var} !important;
+  }
+}
+
+// -------------------------------------
+// フォントの太さ
+// -------------------------------------
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+// -------------------------------------
+// テキストの色
+// -------------------------------------
+
+.text-gray {
+  color: $color-text-gray !important;
+}
+
+.text-primary {
+  color: $color-primary !important;
+}
+
+.text-danger {
+  color: $color-danger !important;
+}
+
+.text-info {
+  color: palette(info, base);
+}
+
+// -------------------------------------
+// テキストの揃え位置
+// -------------------------------------
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+@include media-queries($break-point-small, max) {
+  .text-center-sp {
+    text-align: center !important;
+  }
+}
+
+// -------------------------------------
+// テキストの省略
+// -------------------------------------
+
+.text-ellipsis {
+  @include text-ellipsis;
+}
+
+.text-paragraph {
+  line-height: $base-line-height;
+}

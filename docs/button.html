@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <div id="root">
+    <div class="layout" :class="{ 'is-main-full': isMainFull }">
+      <header class="layout-header">
+        <nav class="navbar">
+          <a href="/" class="navbar-title">Sample App</a>
+        </nav>
+      </header>
+      <main class="layout-main">
+        <div class="content">
+          <h1>Button</h1>
+<h2>Example</h2>
+<p><code>.button</code> クラスを付与すると、ボタンの見た目が適用されます。</p>
+<sandbox escaped-code='<button class=%22button%22>Button</button>
+<button class=%22button%22 disabled>Button</button>' lang="html" :height="180" :breakpoints="[768]"></sandbox>
+<h2>枠線のみ</h2>
+<sandbox escaped-code='<button type=%22button%22 class=%22button is-outline%22>Button</button>
+<button type=%22button%22 class=%22button is-outline%22 disabled>Button</button>' lang="html" :height="180" :breakpoints="[768]"></sandbox>
+<h2>小さいサイズ</h2>
+<sandbox escaped-code='<button type=%22button%22 class=%22button is-small%22>Button</button>
+<button type=%22button%22 class=%22button is-small is-outline%22>Button</button>' lang="html" :height="120" :breakpoints="[768]"></sandbox>
+<h2>カテゴリ別</h2>
+<sandbox escaped-code='<button type=%22button%22 class=%22button is-small is-category1%22>Button</button>
+<button type=%22button%22 class=%22button is-small is-category2%22>Button</button>
+<button type=%22button%22 class=%22button is-small is-category3%22>Button</button>
+<button type=%22button%22 class=%22button is-small is-category4%22>Button</button>
+<button type=%22button%22 class=%22button is-small is-category5%22>Button</button>' lang="html" :height="180" :breakpoints="[768]"></sandbox>
+<h2>アイコン</h2>
+<sandbox escaped-code='<button type=%22button%22 class=%22button is-small is-outline is-icon%22><i class=%22material-icons%22>attach_file</i>Button</button>
+<button type=%22button%22 class=%22button is-small is-outline is-icon%22 disabled><i class=%22material-icons%22>get_app</i>Button</button>' lang="html" :height="120" :breakpoints="[768]"></sandbox>
+<h2>アイコン＋テキスト</h2>
+<sandbox escaped-code='<button type=%22button%22 class=%22icon-button%22><i class=%22material-icons%22>add</i></button>
+<button type=%22button%22 class=%22icon-button is-active%22><i class=%22material-icons%22>attach_file</i></button>' lang="html" :height="90" :breakpoints="[768]"></sandbox>
+<h2>グルーピング</h2>
+<sandbox escaped-code='<div class=%22button-group%22>
+  <button type=%22button%22 class=%22button is-outline%22>Button</button>
+  <button type=%22button%22 class=%22button%22>Button</button>
+</div>' lang="html" :height="160" :breakpoints="[768]"></sandbox>
+
+        </div>
+      </main>
+      <aside class="layout-sidebar">
+        <nav class="sidebar">
+          <div class="sidebar-content">
+            
+              <h2 class="sidebar-group">コンポーネント</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="button.html">ボタン</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="modal.html">モーダルウィンドウ</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="table.html">テーブル</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="step.html">ステップ</a>
+                  </li>
+                
+              </ul>
+            
+              <h2 class="sidebar-group">フォーム</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="form-text.html">テキスト入力</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-selectbox.html">セレクトボックス</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-datepicker.html">日付</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-addrow.html">行追加</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+        </nav>
+      </aside>
+      <footer class="layout-footer footer">
+        Copyright © 2020-present AR advanced technology, Inc
+      </footer>
+      <button class="layout-toggler" @click="toggleLayout">
+        <svg v-if="isMainFull" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <svg v-else viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

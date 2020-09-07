@@ -1,0 +1,23 @@
+// -------------------------------------
+// 検索フィールド
+// -------------------------------------
+
+.form-search {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: space(2);
+    z-index: 1;
+    font-family: 'Material Icons';
+    font-size: space(2);
+    content: 'search';
+    transform: translateY(-50%);
+  }
+
+  .form-control {
+    padding-left: space(5);
+  }
+}

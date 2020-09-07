@@ -1,0 +1,12 @@
+// -------------------------------------
+// 関数
+// -------------------------------------
+
+@function font-size($val, $base: $base-font-size-px) {
+  @return #{$val / $base}rem;
+}
+
+// 余白の計算
+@function space($value) {
+  @return $space-base * $value;
+}

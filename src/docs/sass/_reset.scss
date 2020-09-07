@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+}

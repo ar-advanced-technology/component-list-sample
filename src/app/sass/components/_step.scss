@@ -1,0 +1,106 @@
+.step {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-column-gap: space(1);
+  justify-content: center;
+  margin-bottom: space(2);
+  counter-reset: item;
+
+  .step-item {
+    position: relative;
+    display: flex;
+    grid-row-start: 2;
+    align-items: center;
+    justify-content: center;
+    font-size: font-size(18);
+    font-weight: bold;
+    color: palette(gray, light2);
+
+    &::before {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-right: space(1);
+      color: palette(white);
+      content: counter(item);
+      counter-increment: item;
+      background-color: palette(gray, light2);
+      border-radius: 50%;
+    }
+
+    &:not(:last-child) {
+      &::after {
+        $arrow-width: 6px;
+
+        right: - space(1) - $arrow-width;
+        width: 0;
+        height: 0;
+        margin-left: space(1);
+        content: "";
+        border-top: $arrow-width solid transparent;
+        border-bottom: $arrow-width solid transparent;
+        border-left: $arrow-width solid palette(gray, light2);
+      }
+    }
+
+    // アクティブ時
+    &.is-active {
+      color: $color-text;
+      &::before {
+        background-color: palette(black);
+      }
+    }
+  }
+
+  // 吹き出し
+  .step-baloon {
+    $arrow-height: 5px;
+
+    position: relative;
+    display: none;
+    grid-column-start: 2;
+    justify-self: center;
+    min-width: 70px;
+    padding: space(1);
+    margin-bottom: $arrow-height + space(1);
+    font-size: font-size(12);
+    font-weight: bold;
+    color: palette(white);
+    text-align: center;
+    background-color: palette(gray, light1);
+    border-radius: 4px;
+
+    // 吹き出しの▼部分
+    &:before {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: - $arrow-height;
+      content: "";
+      border: $arrow-height solid transparent;
+      border-top: $arrow-height solid palette(gray, light1);
+    }
+
+    // アクティブ時
+    &.is-active {
+      display: inline-block;
+    }
+  }
+}
+
+@include media-queries($break-point-small, max) {
+  .step {
+    .step-item {
+      font-size: font-size(16);
+
+      &::before {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}

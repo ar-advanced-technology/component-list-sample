@@ -1,0 +1,36 @@
+// -------------------------------------
+// セレクトボックス
+// -------------------------------------
+
+.form-select {
+  position: relative;
+  width: 100%;
+
+  select {
+    padding-right: calc(1px + #{$input-icon-size} + #{space(3)});
+
+    option:disabled {
+      display: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: font-size(16);
+    display: block;
+    font-size: $base-font-size;
+    pointer-events: none;
+    transform: translatey(-50%);
+    @include icon('keyboard_arrow_down');
+  }
+}
+
+@include media-queries($break-point-small, max) {
+  .form-select {
+    select {
+      padding-top: font-size(14);
+      padding-bottom: font-size(14);
+    }
+  }
+}

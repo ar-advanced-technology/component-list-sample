@@ -1,0 +1,22 @@
+/* stylelint-disable declaration-no-important  */
+$directions: (
+  t: margin-top,
+  r: margin-right,
+  b: margin-bottom,
+  l: margin-left,
+);
+
+$px-spaces: (
+  1: 8,
+  2: 16,
+  3: 24,
+  4: 32
+);
+
+@each $d-key, $direction in $directions {
+  @each $p-key, $p-space in $px-spaces {
+    .m#{$d-key}-#{$p-key} {
+      #{$direction}: #{$p-space}px !important;
+    }
+  }
+}

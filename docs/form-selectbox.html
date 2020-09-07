@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <div id="root">
+    <div class="layout" :class="{ 'is-main-full': isMainFull }">
+      <header class="layout-header">
+        <nav class="navbar">
+          <a href="/" class="navbar-title">Sample App</a>
+        </nav>
+      </header>
+      <main class="layout-main">
+        <div class="content">
+          <h1>セレクトボックス</h1>
+<h2>Example</h2>
+<p>カスタムデザインのセレクトボックスを表示するには、<code>select</code> 要素を <code>.form-select</code> クラスで囲みます。</p>
+<sandbox escaped-code='<div class=%22form-group%22>
+  <label class=%22form-label is-required%22 for=%22sample-1%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <div class=%22form-select%22>
+      <select class=%22form-control%22 id=%22sample-1%22 name=%22sample-1%22>
+        <option value=%22%22>選択</option>
+        <option value=%221%22>1</option>
+        <option value=%222%22>2</option>
+        <option value=%223%22>3</option>
+        <option value=%224%22>4</option>
+      </select>
+    </div>
+  </div>
+</div>' lang="html" :height="140" :breakpoints="[768]"></sandbox>
+<h2>エラー</h2>
+<sandbox escaped-code='<!-- エラー時はselect要素にis-errorクラスを付与する -->
+<div class=%22form-group%22>
+  <label class=%22form-label is-required%22 for=%22sample-2%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <div class=%22form-select%22>
+      <select class=%22form-control is-error%22 id=%22sample-2%22 name=%22sample-2%22>
+        <option value=%22%22 disabled selected>選択</option>
+        <option value=%225%22>5</option>
+        <option value=%226%22>6</option>
+        <option value=%227%22>7</option>
+        <option value=%228%22>8</option>
+      </select>
+    </div>
+    <p class=%22form-note is-error%22>エラー文が入ります</p>
+  </div>
+</div>' lang="html" :height="140" :breakpoints="[768]"></sandbox>
+<h2>非活性</h2>
+<sandbox escaped-code='<!-- select要素にdisabled(無効化)を設定した場合の表示 -->
+<div class=%22form-group%22>
+  <label class=%22form-label is-required%22>項目名</label>
+  <div class=%22form-wrap%22>
+    <div class=%22form-select%22>
+      <select class=%22form-control%22 disabled>
+        <option value=%22%22>選択</option>
+        <option value=%221%22>1</option>
+        <option value=%222%22>2</option>
+        <option value=%223%22>3</option>
+        <option value=%224%22>4</option>
+      </select>
+    </div>
+  </div>
+</div>' lang="html" :height="140" :breakpoints="[768]"></sandbox>
+
+        </div>
+      </main>
+      <aside class="layout-sidebar">
+        <nav class="sidebar">
+          <div class="sidebar-content">
+            
+              <h2 class="sidebar-group">コンポーネント</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="button.html">ボタン</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="modal.html">モーダルウィンドウ</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="table.html">テーブル</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="step.html">ステップ</a>
+                  </li>
+                
+              </ul>
+            
+              <h2 class="sidebar-group">フォーム</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="form-text.html">テキスト入力</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-selectbox.html">セレクトボックス</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-datepicker.html">日付</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-addrow.html">行追加</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+        </nav>
+      </aside>
+      <footer class="layout-footer footer">
+        Copyright © 2020-present AR advanced technology, Inc
+      </footer>
+      <button class="layout-toggler" @click="toggleLayout">
+        <svg v-if="isMainFull" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <svg v-else viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

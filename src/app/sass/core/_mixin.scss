@@ -1,0 +1,125 @@
+// -------------------------------------
+// ミックスイン
+// -------------------------------------
+
+// Media queries
+@mixin media-queries($breakpoint, $direction) {
+  // 画面幅が$breakpointより広い時のメディアクエリ
+  @if $direction == 'min' {
+    @media screen and (min-width: #{$breakpoint + 1}) {
+      @content;
+    }
+  }
+  // 画面幅が$breakpoint以下の時のメディアクエリ
+  @else if $direction == 'max' {
+    @media screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Material icon ( for background )
+@mixin icon($name) {
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  content: $name;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+// Transition
+@mixin transition(
+  $transition-property: 'all',
+  $transition-duration: $duration
+) {
+  transition-duration: $transition-duration;
+  transition-property: $transition-property;
+}
+
+// Animation
+@mixin animation(
+  $animation-name,
+  //アニメーションの名前
+    $animation-duration: $duration,
+  //完了までの時間
+    $animation-timing-function: $timing-function,
+  //進行の仕方
+    $animation-iteration-count: $iteration-count,
+  //アニメーションの再生回数
+) {
+  animation-name: $animation-name;
+  animation-duration: $animation-duration;
+  animation-timing-function: $animation-timing-function;
+  animation-iteration-count: $animation-iteration-count;
+}
+
+// Placeholder
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+  }
+
+  &:placeholder-shown {
+    text-overflow: ellipsis;
+  }
+}
+
+// Box shadow
+@mixin box-shadow($x: 0, $y: 2px, $b: 3px, $a: 0.08) {
+  box-shadow: $x $y $b rgba($color: $color-box-shadow, $alpha: $a);
+}
+
+// Text ellipsis
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// clearfix
+@mixin clearfix {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+// scrollbar非表示
+@mixin hidden-scrollbar {
+  // Edge
+  -ms-overflow-style: none;
+  // Firefox
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// -------------------------------------
+// Forms
+// -------------------------------------
+
+@mixin form-control-focused {
+  border-color: $color-primary;
+  outline: 0;
+}
+
+@mixin form-control-error {
+  background-color: palette(danger, light2);
+  border-color: $color-danger;
+}
+
+@mixin form-control-disabled {
+  color: $color-text-gray;
+  background-color: palette(gray, light4);
+}

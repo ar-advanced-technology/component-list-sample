@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <div id="root">
+    <div class="layout" :class="{ 'is-main-full': isMainFull }">
+      <header class="layout-header">
+        <nav class="navbar">
+          <a href="/" class="navbar-title">Sample App</a>
+        </nav>
+      </header>
+      <main class="layout-main">
+        <div class="content">
+          <h1>テーブル</h1>
+<h2>Example</h2>
+<ul>
+<li>テーブルには <code>.table</code> クラスを付与します。</li>
+<li><code>.is-outlined</code> クラスを付与すると、枠付きになります。</li>
+</ul>
+<sandbox escaped-code='<div class=%22table-container%22>
+  <table class=%22table is-outlined%22>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>分類</th>
+        <th>メモ</th>
+        <th>領収書</th>
+        <th>金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+      <tr>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+      <tr class=%22row-danger%22>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+    </tbody>
+  </table>
+</div>' lang="html" :height="280" :breakpoints="[768]"></sandbox>
+<h2>レスポンシブ</h2>
+<p><code>.table-container</code> で囲むと、画面幅が狭まったとき、テーブルが横にスクロールします。</p>
+<sandbox escaped-code='<div class=%22table-container%22>
+  <table class=%22table is-outlined%22>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>分類</th>
+        <th>メモ</th>
+        <th>領収書</th>
+        <th>金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+      <tr>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+    </tbody>
+  </table>
+</div>' lang="html" :height="280" :breakpoints="[768]"></sandbox>
+<p><code>.is-mobile-stacked</code> クラスを付与すると、モバイル幅で、セルが縦に積まれます。</p>
+<sandbox escaped-code='<table class=%22table is-outlined is-mobile-stacked%22>
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>分類</th>
+      <th>メモ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2019/08/01</td>
+      <td>交通費</td>
+      <td>業務システム使い方レクチャーの為名古屋出張</td>
+    </tr>
+    <tr>
+      <td>2019/08/01</td>
+      <td>交通費</td>
+      <td>業務システム使い方レクチャーの為名古屋出張</td>
+    </tr>
+  </tbody>
+</table>' lang="html" :height="280" :breakpoints="[768]"></sandbox>
+<h2>行のハイライト</h2>
+<ul>
+<li><code>.is-hoverable</code> クラスを付与すると、マウスオーバーした行をハイライトします。</li>
+<li><code>&lt;tr&gt;</code> 要素 に <code>.row-danger</code> クラスを付与すると、エラーを示す表示になります。</li>
+</ul>
+<sandbox escaped-code='<div class=%22table-container%22>
+  <table class=%22table is-outlined is-hoverable%22>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>分類</th>
+        <th>メモ</th>
+        <th>領収書</th>
+        <th>金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+      <tr class=%22row-danger%22>
+        <td>2019/08/01</td>
+        <td>交通費</td>
+        <td>業務システム使い方レクチャーの為名古屋出張</td>
+        <td>領収書XXXXXX.pdf</td>
+        <td>10,000円</td>
+      </tr>
+    </tbody>
+  </table>
+</div>' lang="html" :height="280" :breakpoints="[768]"></sandbox>
+<h2>セル幅を最小化する</h2>
+<p><code>.cell-minimum</code> クラスを付与したセルは、幅がコンテンツの幅まで縮まります。</p>
+<sandbox escaped-code='<div class=%22table-container%22>
+  <table class=%22table is-outlined%22>
+    <thead>
+      <tr>
+        <th>ファイル名</th>
+        <th>サイズ</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class=%22cell-minimum%22>20190824-納品書-称賛システム スマホアプリ開発案件.zip</td>
+        <td class=%22cell-minimum%22>123.4KB</td>
+        <td class=%22text-right%22>
+          <button type=%22button%22 class=%22icon-button%22>
+            <i class=%22material-icons%22>get_app</i>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class=%22cell-minimum%22>20190824-納品書-称賛システム スマホアプリ開発案件.zip</td>
+        <td class=%22cell-minimum%22>123.4KB</td>
+        <td class=%22text-right%22>
+          <button type=%22button%22 class=%22icon-button%22>
+            <i class=%22material-icons%22>get_app</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>' lang="html" :height="280" :breakpoints="[768]"></sandbox>
+<h2>行間の狭いテーブル</h2>
+<p><code>.is-narrow</code> クラスを付与すると、行間の狭いシンプルな表示が適用されます。</p>
+<sandbox escaped-code='<table class=%22table is-mobile-stacked is-narrow is-outlined%22>
+  <tbody>
+    <tr>
+      <td class=%22cell-minimum%22>
+        <div class=%22flexbox align-center%22>
+          2019/08/20
+        </div>
+      </td>
+      <td class=%22cell-ellipsis%22>
+        動作保証環境以外では正常に表示・動作しない場合がございますので予めご了承願います。
+      </td>
+    </tr>
+    <tr>
+      <td class=%22cell-minimum%22>
+        <div class=%22flexbox align-center%22>
+          2019/08/20
+        </div>
+      </td>
+      <td class=%22cell-ellipsis%22>
+        消費税増税対応の第1弾として、見積書と注文書から消費税の項目をなくしております。
+      </td>
+    </tr>
+  </tbody>
+</table>' lang="html" :height="240" :breakpoints="[420]"></sandbox>
+<h2>定義テーブル</h2>
+<p>ヘッダーと値が一行に並ぶタイプの定義テーブルを表現するには、<code>.is-definition</code> クラスを付与します。</p>
+<sandbox escaped-code='<table class=%22table is-definition%22>
+  <tbody>
+    <tr>
+      <th>ARI PJコード</th>
+      <td>MSLB19009</td>
+    </tr>
+    <tr>
+      <th>契約金額</th>
+      <td class=%22text-xl%22>3,000,000円</td>
+    </tr>
+    <tr>
+      <th>契約期間</th>
+      <td>2019/08/01〜2019/10/30 予定</td>
+    </tr>
+  </tbody>
+</table>' lang="html" :height="320" :breakpoints="[768]"></sandbox>
+
+        </div>
+      </main>
+      <aside class="layout-sidebar">
+        <nav class="sidebar">
+          <div class="sidebar-content">
+            
+              <h2 class="sidebar-group">コンポーネント</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="button.html">ボタン</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="modal.html">モーダルウィンドウ</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="table.html">テーブル</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="step.html">ステップ</a>
+                  </li>
+                
+              </ul>
+            
+              <h2 class="sidebar-group">フォーム</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="form-text.html">テキスト入力</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-selectbox.html">セレクトボックス</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-datepicker.html">日付</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-addrow.html">行追加</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+        </nav>
+      </aside>
+      <footer class="layout-footer footer">
+        Copyright © 2020-present AR advanced technology, Inc
+      </footer>
+      <button class="layout-toggler" @click="toggleLayout">
+        <svg v-if="isMainFull" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <svg v-else viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

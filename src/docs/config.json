@@ -1,0 +1,18 @@
+{
+  "name": "Sample App",
+
+  "sideMenu": {
+    "コンポーネント": [
+      { "title": "ボタン", "path": "button.html" },
+      { "title": "モーダルウィンドウ", "path": "modal.html" },
+      { "title": "テーブル", "path": "table.html" },
+      { "title": "ステップ", "path": "step.html" }
+    ],
+    "フォーム": [
+      { "title": "テキスト入力", "path": "form-text.html" },
+      { "title": "セレクトボックス", "path": "form-selectbox.html" },
+      { "title": "日付", "path": "form-datepicker.html" },
+      { "title": "行追加", "path": "form-addrow.html" }
+    ]
+  }
+}

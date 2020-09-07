@@ -1,0 +1,102 @@
+.smart-input {
+  .smart-input-row {
+    display: flex;
+    align-items: center;
+
+    & + .smart-input-row {
+      margin-top: space(2);
+    }
+  }
+
+  .smart-input-col {
+    flex: 0 0 140px;
+    width: 140px;
+
+    & + .smart-input-col {
+      margin-left: space(2);
+    }
+
+    &.is-fluid {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    &.has-actions {
+      display: flex;
+      flex: 0 0 space(9.5);
+      align-items: center;
+      justify-content: space-between;
+      width: space(9.5);
+    }
+
+    &.has-action {
+      display: flex;
+      flex: 0 0 space(4);
+      align-items: center;
+      width: space(4);
+    }
+  }
+
+  .smart-input-footer {
+    padding-top: space(2);
+    padding-right: space(11.5);
+    border-top: 1px solid palette(gray, light4);
+  }
+
+  .smart-input-label {
+    display: block;
+    margin-right: space(2);
+    font-weight: bold;
+    color: $color-text-gray;
+    text-align: right;
+  }
+}
+
+@include media-queries($break-point-medium, max) {
+  .smart-input {
+    .smart-input-row {
+      display: block;
+
+      & + .smart-input-row {
+        padding-top: space(2);
+        border-top: 1px solid palette(gray, light4);
+      }
+    }
+
+    .smart-input-col {
+      width: 100%;
+
+      & + .smart-input-col {
+        margin-top: space(2);
+        margin-left: 0;
+      }
+
+      &.has-actions,
+      &.has-action {
+        justify-content: flex-end;
+        width: 100%;
+
+        .icon-button {
+          margin-left: space(2);
+        }
+      }
+    }
+
+    .smart-input-footer {
+      padding-right: 0;
+
+      .smart-input-row {
+        display: flex;
+      }
+
+      .smart-input-col {
+        flex: 0 0 50%;
+        width: 50%;
+
+        & + .smart-input-col {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

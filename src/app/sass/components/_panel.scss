@@ -1,0 +1,24 @@
+.panel {
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: space(2.5) space(3);
+    border-bottom: 2px solid palette(gray, light4);
+  }
+
+  .panel-title {
+    font-size: font-size(16);
+    font-weight: bold;
+  }
+
+  .panel-action {
+    display: flex;
+    align-items: center;
+    font-size: font-size(16);
+  }
+
+  .panel-body {
+    //
+  }
+}

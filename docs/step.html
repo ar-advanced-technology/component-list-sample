@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <div id="root">
+    <div class="layout" :class="{ 'is-main-full': isMainFull }">
+      <header class="layout-header">
+        <nav class="navbar">
+          <a href="/" class="navbar-title">Sample App</a>
+        </nav>
+      </header>
+      <main class="layout-main">
+        <div class="content">
+          <h1>ステップ</h1>
+<p>このコンポーネントは、ウィザード形式になった工程の現在地を示すために使用します。</p>
+<h2>Example</h2>
+<ul>
+<li><code>.step</code> 内の <code>.step-baloon</code> に <code>.is-active</code> を付与すると吹き出しが表示されます。</li>
+<li><code>.step-baloon</code> は <code>.step</code> 内の一番目の子要素として配置してください。</li>
+</ul>
+<sandbox escaped-code='<div class=%22step%22>
+  <span class=%22step-baloon is-active%22>検収中</span>
+  <span class=%22step-item%22>納品前</span>
+  <span class=%22step-item is-active%22>納品</span>
+  <span class=%22step-item%22>検収</span>
+</div>' lang="html" :height="120" :breakpoints="[768]"></sandbox>
+
+        </div>
+      </main>
+      <aside class="layout-sidebar">
+        <nav class="sidebar">
+          <div class="sidebar-content">
+            
+              <h2 class="sidebar-group">コンポーネント</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="button.html">ボタン</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="modal.html">モーダルウィンドウ</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="table.html">テーブル</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="step.html">ステップ</a>
+                  </li>
+                
+              </ul>
+            
+              <h2 class="sidebar-group">フォーム</h2>
+              <ul class="sidebar-menu">
+                
+                  <li class="sidebar-link">
+                    <a href="form-text.html">テキスト入力</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-selectbox.html">セレクトボックス</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-datepicker.html">日付</a>
+                  </li>
+                
+                  <li class="sidebar-link">
+                    <a href="form-addrow.html">行追加</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+        </nav>
+      </aside>
+      <footer class="layout-footer footer">
+        Copyright © 2020-present AR advanced technology, Inc
+      </footer>
+      <button class="layout-toggler" @click="toggleLayout">
+        <svg v-if="isMainFull" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <svg v-else viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+@import '../../../../../node_modules/flatpickr/dist/flatpickr';
+
+.flatpickr-calendar {
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  &.arrowTop {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .flatpickr-months {
+    position: relative;
+    padding: 3px 0 8px 0;
+    margin: 6px 6px 0 6px;
+    background-color: palette(gray, light4);
+    border-radius: 4px;
+
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
+      top: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      font-family: 'Material Icons', serif;
+      font-size: 14px;
+      color: palette(white, base);
+      background: palette(black, base);
+      border-radius: 999px;
+      transform: translateY(-50%);
+
+      &:hover {
+        color: palette(white, base);
+        opacity: 0.75;
+      }
+    }
+
+    .flatpickr-next-month {
+      &.flatpickr-next-month {
+        right: 8px;
+      }
+    }
+
+    .flatpickr-prev-month {
+      &.flatpickr-prev-month {
+        left: 8px;
+      }
+    }
+  }
+
+  .flatpickr-current-month {
+    display: flex;
+    justify-content: center;
+    font-size: font-size(16);
+
+    .flatpickr-monthDropdown-months {
+      order: 2;
+      appearance: none;
+      padding: 0;
+    }
+
+    .numInputWrapper {
+      display: flex;
+      order: 1;
+      width: 74px;
+      transform: translateY(-1px);
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        content: '年';
+        transform: translateY(-50%);
+      }
+
+      input.cur-year {
+        padding: 0 2rem 0 0;
+      }
+    }
+  }
+
+  .flatpickr-innerContainer {
+    padding-top: 10px;
+  }
+
+  .flatpickr-day {
+    margin-bottom: 4px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: palette(gray, light4);
+      border-color: palette(gray, light4);
+    }
+
+    &.today {
+      background-color: palette(accent, light);
+      border-color: palette(gray, light3);
+
+      &:hover {
+        color: inherit;
+        background-color: palette(accent, light);
+        border-color: palette(accent, base);
+      }
+    }
+
+    &.selected {
+      background-color: $color-primary;
+      border-color: $color-primary;
+
+      &:hover {
+        color: palette(white, base);
+        background-color: palette(primary, light1);
+        border-color: palette(primary, light1);
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// ページ共通レイアウトを記述
+.layout-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: $header-height;
+}
+
+.layout-wrapper {
+  display: flex;
+  height: 100%;
+  padding-top: $header-height;
+}
+
+.layout-sidemenu {
+  width: $sidemenu-width;
+  overflow-y: auto;
+}
+
+.layout-main {
+  width: calc(100% - #{$sidemenu-width});
+  padding: 0 space(4) space(14);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: palette(gray, light4);
+
+  &.is-hidden {
+    overflow-y: hidden;
+  }
+}
+
+.layout-full {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: space(4) space(20);
+  background-color: palette(gray, light4);
+}
+
+@include media-queries($break-point-small, max) {
+  .layout-header {
+    height: $sp-header-height;
+  }
+
+  .layout-wrapper {
+    padding-top: $sp-header-height;
+  }
+
+  .layout-sidemenu {
+    width: auto;
+  }
+
+  .layout-main {
+    width: 100%;
+    padding-right: space(2);
+    padding-left: space(2);
+  }
+
+  .layout-full {
+    padding: space(4);
+  }
+}
